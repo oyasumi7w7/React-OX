@@ -77,15 +77,15 @@ export default function Board(props) {
             )
         })
 
-        function handleSave(){
-         const data={
-            history:history,
-            result:winner?winner:'Draw',
-            field:field,
-            lastMove:history.length
-         }
-         console.log(data)
-         instance.post('/saveReplay' , data).then(
+    function handleSave() {
+        const data = {
+            history: history,
+            result: winner ? winner : 'Draw',
+            field: field,
+            lastMove: history.length
+        }
+        console.log(data)
+        instance.post('/saveReplay', data).then(
             res => {
                 if (res.data === 'Done') {
                     Swal.fire({
@@ -97,8 +97,10 @@ export default function Board(props) {
                     })
                 }
             }
-        )
-        }
+        ).catch(function (error) {
+            console.log(error.toJSON());
+        });
+    }
 
     return (
         <div>
