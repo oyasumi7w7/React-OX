@@ -3,6 +3,7 @@
 <p>สามารถทดลองผ่านเว็บ <a href='https://react-ox.vercel.app/' target='_blank'>OX React</a></p>
 <p>หรือทำตามขั้นตอนต่อไปนี้</p>
 
+<h1>ติดตั้ง</h1>
 <br>
  <p> ขั้นตอนที่1 คลิ๊กที่ไอค่อนสีเขียว <>Code</p>
  <a><img style='width:500px' src='https://res.cloudinary.com/dywesykq1/image/upload/v1669465100/pic1_wr2wit.png'/></a>
@@ -16,9 +17,9 @@
  <p> - หรือเข้าไปยังเมนูที่อยู่แถบข้างบนชื่อว่า Terminal => New Terminal</p>
  <p> ขั้นตอนที่7 ทำการพิมพ์คำสั่ง npm install หรือ npm i ในหน้าต่าง Terminal ที่เปิดขึ้นมาในข้อที่6 รอทำการโหลด package ทั้งหมดจนเสร็จ</p>
  <p> ขั้นตอนที่8 หลังจากเสร็จสิ้นข้อ7 ให้ทำการพิมคำสั่ง npm run dev รอสักครู่ หลังจากนั้นทำการกด Ctrl + คลิกซ้าย ที่ลิ้ง ตามรูปข้างล่าง </p>
-  <a><img style='[width:500px' src='https://res.cloudinary.com/dywesykq1/image/upload/v1669466886/pic3_clvol0.png' /></a>
+  <a><img style='width:500px' src='https://res.cloudinary.com/dywesykq1/image/upload/v1669466886/pic3_clvol0.png' /></a>
  <p> ขั้นตอนที่9 ทดลองใช้งานได้เลย</p>
- 
+ <a><img style='width:500px' src='https://res.cloudinary.com/dywesykq1/image/upload/v1669479528/pic4_ph5quz.png' /></a>
  
  <br>
 <h2> Algorithm </h2>
