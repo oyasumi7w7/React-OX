@@ -2,10 +2,14 @@ import { all } from "axios";
 import React, { useEffect, useState } from "react";
 import { CheckWinner } from "./Checkwinner";
 import Box from "./Box";
+import { instance } from "../../../api";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 export default function Board(props) {
     // const [size, setSize] = useState([])
     // const [boxs, setBox] = useState([])
+    const navigate = useNavigate()
     let field = props.size * props.size
     const [history, setHistory] = useState([Array(field).fill(null)])
     const [stepNumber, setStepNumber] = useState(0)
@@ -18,7 +22,6 @@ export default function Board(props) {
         gridTemplate: `repeat(${props.size}, 1fr) / repeat(${props.size}, 1fr)`
     }
 
-console.log(history)
 
     // useEffect(() => {
     //     setSize([])
@@ -50,8 +53,6 @@ console.log(history)
         const historyPoint = history.slice(0, stepNumber + 1);
         const current = historyPoint[stepNumber];
         const squares = [...current];
-        console.log(current)
-console.log(squares)
         if (winner || squares[i]) return;
         squares[i] = XO
         setHistory([...historyPoint, squares])
@@ -66,9 +67,9 @@ console.log(squares)
 
     const renderMoves = () =>
         history.map((step, move) => {
-            const target = move ?`Go to move : ${move}` : 'Start'
+            const target = move ? `Go to move : ${move}` : 'Start'
             return (
-               
+
                 <li className="listHistory" key={move}>
                     <button className="historyButton" onClick={() => jumpTo(move)}> {target}</button>
                 </li>
@@ -76,13 +77,35 @@ console.log(squares)
             )
         })
 
+        function handleSave(){
+         const data={
+            history:history,
+            result:winner?winner:'Draw',
+            field:field,
+            lastMove:history.length
+         }
+         console.log(data)
+         instance.post('/saveReplay' , data).then(
+            res => {
+                if (res.data === 'Done') {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Save completed.',
+                    }).then(() => {
+                        navigate('/')
+                    })
+                }
+            }
+        )
+        }
 
     return (
         <div>
             <h1>Board</h1>
             <h2>Size {props.size}X{props.size}</h2>
-            <hr/>
-            <h2>{winner ? `Winner is ${winner}` : `Next Player is ${XO}`}</h2>
+            <hr />
+            <h2>{winner ? `Winner is ${winner}` : stepNumber === field ? 'Draw' : `Next Player is ${XO}`}</h2>
             <div style={{ display: 'flex' }}>
                 <div style={grid} className="board" >
                     {
@@ -100,8 +123,10 @@ console.log(squares)
                     <hr />
                     {renderMoves()}
                 </div>
-            </div>
 
+            </div>
+            {winner ? <button style={{ marginTop: '10px', padding: '10px 20px', borderRadius: '10px' }} onClick={handleSave}>Save</button> :
+                stepNumber === field ? <button style={{ marginTop: '10px', padding: '10px 20px', borderRadius: '10px' }} onClick={handleSave}>Save</button> : ''}
 
         </div>
     )

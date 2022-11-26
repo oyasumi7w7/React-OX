@@ -9,7 +9,7 @@ export default function Menu() {
             <hr/>
             <Link to={'/game'}>Start Game</Link>
 <br/>
-            <Link>Replay</Link>
+            <Link to={'/listReplay'}>Replay</Link>
 
         </div>
     )
