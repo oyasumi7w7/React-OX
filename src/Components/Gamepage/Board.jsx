@@ -1,7 +1,7 @@
 import { all } from "axios";
 import React, { useEffect, useState } from "react";
 import { CheckWinner } from "./Checkwinner";
-import Box from "./box";
+import Box from "./Box";
 
 export default function Board(props) {
     // const [size, setSize] = useState([])
