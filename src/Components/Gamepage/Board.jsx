@@ -67,12 +67,27 @@ export default function Board(props) {
 
     const renderMoves = () =>
         history.map((step, move) => {
+            const lastMove = history.length - 1
             const target = move ? `Go to move : ${move}` : 'Start'
             return (
-
-                <li className="listHistory" key={move}>
-                    <button className="historyButton" onClick={() => jumpTo(move)}> {target}</button>
-                </li>
+                move === field ?
+                    <li className="listHistory" key={move}>
+                        <button className="historyButton" onClick={() => jumpTo(move)}> Last Move</button>
+                    </li>
+                    : winner ?
+                        move === lastMove
+                            ?
+                            <li className="listHistory" key={move}>
+                                <button className="historyButton" onClick={() => jumpTo(move)}> Last Move</button>
+                            </li>
+                            :
+                            <li className="listHistory" key={move}>
+                                <button className="historyButton" onClick={() => jumpTo(move)}> {target}</button>
+                            </li>
+                        :
+                        <li className="listHistory" key={move}>
+                            <button className="historyButton" onClick={() => jumpTo(move)}> {target}</button>
+                        </li>
 
             )
         })
