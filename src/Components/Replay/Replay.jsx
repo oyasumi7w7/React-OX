@@ -60,7 +60,7 @@ export default function Replay() {
 
     return (
         <div>
-            <h1>Board</h1>
+            <h1>Replay</h1>
             <h2>Size {size}X{size}</h2>
             <hr />
             <h2>{result === 'draw' ? 'Draw' : `Winner is ${result}`}</h2>
