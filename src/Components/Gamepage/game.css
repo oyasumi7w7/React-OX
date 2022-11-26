@@ -1,0 +1,42 @@
+.start-game{
+    background-color:chocolate;
+    color:white;
+}
+.m-5{
+    margin-top: 5rem;
+}
+
+.box-ox{
+        border: 3px solid transparent;
+        width: 100px;
+        height: 100px;
+        border-color: black;
+        padding: 0.6em 1.2em;
+        font-size: 1em;
+        font-weight: 500;
+        font-family: inherit;
+        background-color: #ffffff;
+        cursor: pointer;
+        transition: border-color 0.25s;
+      
+}
+.posX{
+    display: flex;
+}
+.board {
+    display: grid;
+    padding: 0 10px;
+  }
+  .listHistory{
+    list-style-type: none;
+  }
+  .historyButton{
+margin: 1px 0;
+border-radius: 20px;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #ffffff;
+    cursor: pointer;
+    transition: border-color 0.25s;
+  }
