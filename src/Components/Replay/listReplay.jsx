@@ -10,7 +10,7 @@ export default function ListReplay() {
                 setList(res.data)
         )
     }, [])
-    console.log(lists)
+
     return (
         <div>
             <h1>List</h1><hr />

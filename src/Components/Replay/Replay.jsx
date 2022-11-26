@@ -17,7 +17,7 @@ export default function Replay() {
     const grid = {
         gridTemplate: `repeat(${size}, 1fr) / repeat(${size}, 1fr)`
     }
-    console.log(boxs)
+
 
     useEffect(() => {
         instance.get(`/getReplay/${_id}`).then(

@@ -84,7 +84,6 @@ export default function Board(props) {
             field: field,
             lastMove: history.length
         }
-        console.log(data)
         instance.post('/saveReplay', data).then(
             res => {
                 if (res.data === 'Done') {
