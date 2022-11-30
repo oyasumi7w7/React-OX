@@ -13,16 +13,16 @@ export default function Replay() {
     const [result, setResult] = useState('')
     const [ready, setReady] = useState(false)
     const boxs = history[stepNumber]
-    let size = field === 9 ? 3 : field === 16 ? 4 : 5
+
     const grid = {
-        gridTemplate: `repeat(${size}, 1fr) / repeat(${size}, 1fr)`
+        gridTemplate: `repeat(${field}, 1fr) / repeat(${field}, 1fr)`
     }
 
 
     useEffect(() => {
         instance.get(`/getReplay/${_id}`).then(
             res => {
-                console.log(res.data)
+                // console.log(res.data)
                 setField(res.data.field)
                 setStepNumber(res.data.lastMove -= 1)
                 setResult(res.data.result)
@@ -39,7 +39,7 @@ export default function Replay() {
     function jumpTo(step) {
         setStepNumber(step)
     }
-    console.log(history.length)
+
     const renderMoves = () =>
 
         history.map((step, move) => {
@@ -61,7 +61,7 @@ export default function Replay() {
     return (
         <div>
             <h1>Replay</h1>
-            <h2>Size {size}X{size}</h2>
+            <h2>Size {field}X{field}</h2>
             <hr />
             <h2>{result === 'draw' ? 'Draw' : `Winner is ${result}`}</h2>
             <div style={{ display: 'flex' }}>

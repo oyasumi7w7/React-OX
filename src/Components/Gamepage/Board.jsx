@@ -5,7 +5,7 @@ import Box from "./Box";
 import { instance } from "../../../api";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
-
+import {test} from './test'
 export default function Board(props) {
     // const [size, setSize] = useState([])
     // const [boxs, setBox] = useState([])
@@ -22,6 +22,7 @@ export default function Board(props) {
         gridTemplate: `repeat(${props.size}, 1fr) / repeat(${props.size}, 1fr)`
     }
 
+    const ahlgo = test(props.size)
 
     // useEffect(() => {
     //     setSize([])
@@ -96,7 +97,7 @@ export default function Board(props) {
         const data = {
             history: history,
             result: winner ? winner : 'Draw',
-            field: field,
+            field: props.size,
             lastMove: history.length
         }
         instance.post('/saveReplay', data).then(

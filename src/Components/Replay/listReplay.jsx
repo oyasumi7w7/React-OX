@@ -34,7 +34,7 @@ export default function ListReplay() {
 
                             <tr key={index}>
                                 <td>
-                                    {game.field === 9 ? "3X3" : game.field === 16 ? "4X4" : '5X5'}
+                                    {game.field + 'x' + game.field}
                                 </td>
                                 <td>
                                     {game.result === 'draw' ? <h3>Draw</h3> : `Winner is ${game.result}`}
