@@ -40,12 +40,12 @@ export function CheckWinner(squares, field) {
             if (squares[lines[i][j]] === 'X') {
                 check = check + 1
             } else if (squares[lines[i][j]] === 'O') {
-                check2 = check2 + 2
+                check2 = check2 + ๅ
             }
 
             if (check === Number(field)) {
                 return 'X';
-            } else if (check2 === (Number(field) * 2)) {
+            } else if (check2 === Number(field)) {
                 return 'O';
             }
         }
