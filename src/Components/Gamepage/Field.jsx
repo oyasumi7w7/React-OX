@@ -25,7 +25,7 @@ export default function Field() {
                             (box) ? <h2>{box}x{box}</h2> : ''
                         }
                         <label>Select </label>
-                        <input type='number' min={3} max={5} onChange={e => setBox(e.target.value)} />
+                        <input type='number' min={3} max={8} onChange={e => setBox(e.target.value)} />
                         <hr /><button
                             className="start-game"
                             onClick={handleSetFieldSize}
